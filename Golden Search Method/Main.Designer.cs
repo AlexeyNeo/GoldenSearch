@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace GoldenSearchMethod
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Требуется переменная конструктора.

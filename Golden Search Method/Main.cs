@@ -1,41 +1,30 @@
-﻿using WindowsFormsApplication1;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using info.lundin.math;
 using System.Diagnostics;
-using System.Globalization;
-using parserDecimal;
-//using  System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace WindowsFormsApplication1
+namespace GoldenSearchMethod
 {
  
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        Form newMDIChild = new WindowsFormsApplication1.Form2();//дочернее окно
+        Form newMDIChild = new GoldenSearchMethod.iteration();//дочернее окно
         public ExpressionParser parser = new ExpressionParser();
-        public Form1()
+        public Main()
         {
             InitializeComponent();
-            frm2 = new Form2();
+            frm2 = new iteration();
         }
-        Form2 frm2;
+        iteration frm2;
         public String[] it = new String[100];
         public int k = 0;
         public int time = 0;
         public string fx;
+
         private void Form1_Load(object sender, EventArgs e)
         {//настройки прогресс бара
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = 100;
-           
+            progressBar1.Maximum = 100;     
         }
         private int v()// проверка на пустоту
         {
@@ -139,7 +128,6 @@ namespace WindowsFormsApplication1
            
             for (int i = 0; i < k; i++)//заполняю окно записями 
             {
-
                 frm2.richTextBox1.Text += it[i];
             }
             frm2.ShowDialog();//вызываю 
@@ -168,7 +156,6 @@ namespace WindowsFormsApplication1
             progressBar1.Visible = false;
             iterationButton.Enabled = false;
             ms.Text = "";
-
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -194,8 +181,7 @@ namespace WindowsFormsApplication1
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (progressBar1.Value < 100)
-                progressBar1.Increment(+20);
-            
+                progressBar1.Increment(+20);  
             else
             {
                 time++;

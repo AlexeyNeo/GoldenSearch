@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace GoldenSearchMethod
 {
-    partial class Form2
+    partial class iteration
     {
         /// <summary>
         /// Required designer variable.

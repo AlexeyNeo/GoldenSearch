@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using parserDecimal.Parser;
 
 
-namespace WindowsFormsApplication1
+namespace GoldenSearchMethod
 {
     
 
-    public class GoldenSM: Form1
+    public class GoldenSM
     {
 //public  ExpressionParser parser = new ExpressionParser();
         double rr = (Math.Pow(5, 0.5) - 1) / 2;
@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         Decimal x1 = 0, x2 = 0;
         Decimal fx1 = 0, fx2 = 0, abs = 0;
         int k;//текущая итерация
-        private System.Windows.Forms.TextBox textBox1;
+      //  private System.Windows.Forms.TextBox textBox1;
         string fxp;
         //public ExpressionParser parser = new ExpressionParser();
         public Decimal Function(Decimal x1)//функция 
@@ -109,41 +109,7 @@ namespace WindowsFormsApplication1
     return x1;
     }
 
-        private void InitializeComponent()
-        {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
-            // 
-            // fx1outBox
-            // 
-            this.fx1outBox.TextChanged += new System.EventHandler(this.fx1outBox_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(105, 453);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // GoldenSM
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(311, 492);
-            this.Controls.Add(this.textBox1);
-            this.Name = "GoldenSM";
-            this.Load += new System.EventHandler(this.GoldenSM_Load);
-            this.Controls.SetChildIndex(this.progressBar1, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
-
-        private void GoldenSM_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
