@@ -28,16 +28,31 @@ namespace GoldenSearchMethod
         }
         private int v()// проверка на пустоту
         {
-            double tol = double.Parse(tolBox.Text);
+            double tol;
+            if (tolBox.Text == "")
+            {
+                MessageBox.Show("Вы не указали точность вычисления.");
+                return 0;
+            }
+             tol = double.Parse(tolBox.Text);
+           
+            double a, b;
+            a = double.Parse(aBox.Text);
+            b = double.Parse(bBox.Text);
                 
             if (aBox.Text == "" || bBox.Text=="")
             {
                 MessageBox.Show("Вы не указали диапазон поиска.");
                 return 0;
             }
+            if ( a >= b )
+            {
+                MessageBox.Show("Вы неверно указали диапазон поиска, левая граница \n должна быть меньше правой (a < b).");
+                return 0;
+            }
             if (comboBoxf.Text == "")
             {
-                MessageBox.Show("Поле не 'F' не может быть пустым, выберите элемент из списка или напишите вручную формулу.");
+                MessageBox.Show("Поле не 'F' не может быть пустым, выберите элемент из списка \n или напишите вручную формулу.");
                 return 0;
             }
            if (  tol < 1e-28 )
@@ -257,6 +272,11 @@ namespace GoldenSearchMethod
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bBox_TextChanged(object sender, EventArgs e)
         {
 
         }

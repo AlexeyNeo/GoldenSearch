@@ -1,29 +1,21 @@
-﻿using info.lundin.math;
-//using MathParser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using parserDecimal.Parser;
-
 
 namespace GoldenSearchMethod
 {
-    
 
     public class GoldenSM
     {
 //public  ExpressionParser parser = new ExpressionParser();
         double rr = (Math.Pow(5, 0.5) - 1) / 2;
     
-        Decimal x1 = 0, x2 = 0;
-        Decimal fx1 = 0, fx2 = 0, abs = 0;
+        decimal x1 = 0, x2 = 0;
+        decimal fx1 = 0, fx2 = 0, abs = 0;
         int k;//текущая итерация
       //  private System.Windows.Forms.TextBox textBox1;
         string fxp;
         //public ExpressionParser parser = new ExpressionParser();
-        public Decimal Function(Decimal x1)//функция 
+        public decimal Function(decimal x1)//функция 
         {
             Computer computer = new Computer();
            // ((DoubleValue)parser.Values["x"]).Value = x1;          
@@ -34,7 +26,6 @@ namespace GoldenSearchMethod
         public void fparse(string f)//принимаю функцию.
         {
             fxp = f;
-        
         }
         public String[] GoldenIterationMax(Decimal x, Decimal a, Decimal b, double tol, int k_max, string f)
         {
@@ -108,9 +99,6 @@ namespace GoldenSearchMethod
     {
     return x1;
     }
-
-       
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.searchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxf = new System.Windows.Forms.ComboBox();
             this.maxRadio = new System.Windows.Forms.RadioButton();
             this.MinRatio = new System.Windows.Forms.RadioButton();
             this.labelk = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             this.iterationButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelms = new System.Windows.Forms.Label();
             this.ms = new System.Windows.Forms.TextBox();
             this.labelfx = new System.Windows.Forms.Label();
             this.fx1outBox = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@
             this.x1uotFBox = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.comboBoxf = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Входные данные";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBoxf
+            // 
+            this.comboBoxf.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxf.FormattingEnabled = true;
+            this.comboBoxf.Items.AddRange(new object[] {
+            "x^3+x^2-6*x-6",
+            "x^3+x^2-7*x-7",
+            "x^3+x^2-5*x-5",
+            "x^3+x^2-8*x-8",
+            "",
+            ""});
+            this.comboBoxf.Location = new System.Drawing.Point(121, 23);
+            this.comboBoxf.Name = "comboBoxf";
+            this.comboBoxf.Size = new System.Drawing.Size(121, 25);
+            this.comboBoxf.TabIndex = 15;
             // 
             // maxRadio
             // 
@@ -180,6 +196,7 @@
             this.bBox.Name = "bBox";
             this.bBox.Size = new System.Drawing.Size(82, 25);
             this.bBox.TabIndex = 6;
+            this.bBox.TextChanged += new System.EventHandler(this.bBox_TextChanged);
             this.bBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bBox_KeyPress);
             // 
             // labela
@@ -240,7 +257,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.labelms);
             this.groupBox2.Controls.Add(this.ms);
             this.groupBox2.Controls.Add(this.labelfx);
             this.groupBox2.Controls.Add(this.fx1outBox);
@@ -260,15 +277,15 @@
             this.groupBox2.Text = "Выходные данные";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // label1
+            // labelms
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(31, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 18);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Ms:";
+            this.labelms.AutoSize = true;
+            this.labelms.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelms.Location = new System.Drawing.Point(31, 157);
+            this.labelms.Name = "labelms";
+            this.labelms.Size = new System.Drawing.Size(32, 18);
+            this.labelms.TabIndex = 15;
+            this.labelms.Text = "Ms:";
             // 
             // ms
             // 
@@ -370,23 +387,7 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // comboBoxf
-            // 
-            this.comboBoxf.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxf.FormattingEnabled = true;
-            this.comboBoxf.Items.AddRange(new object[] {
-            "x^3+x^2-6*x-6",
-            "x^3+x^2-7*x-7",
-            "x^3+x^2-5*x-5",
-            "x^3+x^2-8*x-8",
-            "",
-            ""});
-            this.comboBoxf.Location = new System.Drawing.Point(121, 23);
-            this.comboBoxf.Name = "comboBoxf";
-            this.comboBoxf.Size = new System.Drawing.Size(121, 25);
-            this.comboBoxf.TabIndex = 15;
-            // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -396,7 +397,7 @@
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.searchButton);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Метод золотого сечения";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -437,7 +438,7 @@
         private System.Windows.Forms.Label labelfx;
         public System.Windows.Forms.TextBox fx1outBox;
         public System.Windows.Forms.TextBox ms;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelms;
         private System.Windows.Forms.ComboBox comboBoxf;
     }
 }
