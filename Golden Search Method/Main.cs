@@ -79,49 +79,56 @@ namespace GoldenSearchMethod
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            fx = comboBoxf.Text;
-            if (v() == 0)
-            { }
-            else
+            try
             {
-                progressBar1.Visible = true;
-                timer1.Start();
-                Decimal a = Decimal.Parse(aBox.Text);
-                Decimal b = Decimal.Parse(bBox.Text);
-                double tol = parser.Parse(tolBox.Text);
-                int k_max = int.Parse(k_maxBox.Text);
-                GoldenSM obj = new GoldenSM();// объект класса
-
-                if (maxRadio.Checked == true)
-                {
-                    Stopwatch stopWatch = new Stopwatch();
-
-                    stopWatch.Start();
-                    ////данные для входного интерфейса.
-                    it = obj.GoldenIterationMax(a, a, b, tol, k_max, fx);//метод вычисления
-                    stopWatch.Stop();
-
-                    TimeSpan ts = stopWatch.Elapsed;
-                    ms.Text = String.Format("{0,000}", ts.TotalMilliseconds);
-                  
-                }
+                fx = comboBoxf.Text;
+                if (v() == 0)
+                { }
                 else
-                { 
-                    Stopwatch stopWatch = new Stopwatch();
-                    stopWatch.Start();
-                    it = obj.GoldenIterationMin(a, a, b, tol, k_max, fx);//алгоритм golden search
-                    TimeSpan ts = stopWatch.Elapsed;
-                    ms.Text = String.Format("{0,000}", ts.TotalMilliseconds);
+                {
+                    progressBar1.Visible = true;
+                    timer1.Start();
+                    Decimal a = Decimal.Parse(aBox.Text);
+                    Decimal b = Decimal.Parse(bBox.Text);
+                    double tol = parser.Parse(tolBox.Text);
+                    int k_max = int.Parse(k_maxBox.Text);
+                    GoldenSM obj = new GoldenSM();// объект класса
+
+                    if (maxRadio.Checked == true)
+                    {
+                        Stopwatch stopWatch = new Stopwatch();
+
+                        stopWatch.Start();
+                        ////данные для входного интерфейса.
+                        it = obj.GoldenIterationMax(a, a, b, tol, k_max, fx);//метод вычисления
+                        stopWatch.Stop();
+
+                        TimeSpan ts = stopWatch.Elapsed;
+                        ms.Text = String.Format("{0,000}", ts.TotalMilliseconds);
+
+                    }
+                    else
+                    {
+                        Stopwatch stopWatch = new Stopwatch();
+                        stopWatch.Start();
+                        it = obj.GoldenIterationMin(a, a, b, tol, k_max, fx);//алгоритм golden search
+                        TimeSpan ts = stopWatch.Elapsed;
+                        ms.Text = String.Format("{0,00}", ts.TotalMilliseconds);
+                    }
+                    //данные для выходного интерфейса.
+                    countinerBox.Text = "" + obj.k_iner();//выводим кол-во итераций
+                    k = obj.k_iner();
+                    x1uotFBox.Text = "" + obj.x1out();//выводим х1
+                    fx1outBox.Text = "" + obj.fx1out();//Fx1
+                    outTolBox.Text = "" + obj.absab().ToString("0e0");
+                    iterationButton.Enabled = true;
                 }
-                //данные для выходного интерфейса.
-                countinerBox.Text = "" + obj.k_iner();//выводим кол-во итераций
-                k = obj.k_iner();
-                x1uotFBox.Text = "" + obj.x1out();//выводим х1
-                fx1outBox.Text = "" + obj.fx1out();//Fx1
-                outTolBox.Text = "" + obj.absab().ToString("0e0");
-                iterationButton.Enabled = true;
             }
-        }       
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось распознать F. "+ex.Message); }
+            }
         private void str(string[] it)
         {
             throw new NotImplementedException();
