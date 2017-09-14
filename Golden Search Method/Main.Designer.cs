@@ -58,6 +58,7 @@
             this.x1uotFBox = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelerr = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -269,9 +270,9 @@
             this.groupBox2.Controls.Add(this.labelx);
             this.groupBox2.Controls.Add(this.x1uotFBox);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 281);
+            this.groupBox2.Location = new System.Drawing.Point(12, 333);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 201);
+            this.groupBox2.Size = new System.Drawing.Size(353, 213);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Выходные данные";
@@ -289,7 +290,6 @@
             // 
             // ms
             // 
-            this.ms.Enabled = false;
             this.ms.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ms.Location = new System.Drawing.Point(67, 154);
             this.ms.Name = "ms";
@@ -377,7 +377,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 257);
+            this.progressBar1.Location = new System.Drawing.Point(13, 256);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(353, 18);
             this.progressBar1.TabIndex = 6;
@@ -387,11 +387,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelerr
+            // 
+            this.labelerr.AutoSize = true;
+            this.labelerr.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelerr.ForeColor = System.Drawing.Color.Red;
+            this.labelerr.Location = new System.Drawing.Point(33, 280);
+            this.labelerr.Name = "labelerr";
+            this.labelerr.Size = new System.Drawing.Size(0, 18);
+            this.labelerr.TabIndex = 7;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 494);
+            this.ClientSize = new System.Drawing.Size(377, 560);
+            this.Controls.Add(this.labelerr);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.clearButton);
@@ -405,6 +416,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -440,6 +452,7 @@
         public System.Windows.Forms.TextBox ms;
         private System.Windows.Forms.Label labelms;
         private System.Windows.Forms.ComboBox comboBoxf;
+        private System.Windows.Forms.Label labelerr;
     }
 }
 

@@ -55,11 +55,11 @@ namespace GoldenSearchMethod
                 MessageBox.Show("Поле не 'F' не может быть пустым, выберите элемент из списка \n или напишите вручную формулу.");
                 return 0;
             }
-           if (  tol < 1e-28 )
-            {
-                MessageBox.Show("Программа не может расчитать с введенной точностью.");
-                return 0;
-            }
+           //if (  tol < 1e-28 )
+           // {
+           //     MessageBox.Show("Программа не может расчитать с введенной точностью.");
+           //     return 0;
+           // }
             if (tolBox.Text == "")
             {
                 MessageBox.Show("Укажите точность вычисления.");
@@ -79,8 +79,9 @@ namespace GoldenSearchMethod
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
+                labelerr.Text = "";
                 fx = comboBoxf.Text;
                 if (v() == 0)
                 { }
@@ -96,6 +97,7 @@ namespace GoldenSearchMethod
 
                     if (maxRadio.Checked == true)
                     {
+                        var buffer = DateTime.Now;
                         Stopwatch stopWatch = new Stopwatch();
 
                         stopWatch.Start();
@@ -104,8 +106,10 @@ namespace GoldenSearchMethod
                         stopWatch.Stop();
 
                         TimeSpan ts = stopWatch.Elapsed;
-                        ms.Text = String.Format("{0,000}", ts.TotalMilliseconds);
-
+                        var time = DateTime.Now - buffer;
+                       // float t = ((ts.Ticks / (float)100) / 10) / 10;
+                        ms.Text =  ts.TotalMilliseconds.ToString("0.0000");
+                        
                     }
                     else
                     {
@@ -113,7 +117,7 @@ namespace GoldenSearchMethod
                         stopWatch.Start();
                         it = obj.GoldenIterationMin(a, a, b, tol, k_max, fx);//алгоритм golden search
                         TimeSpan ts = stopWatch.Elapsed;
-                        ms.Text = String.Format("{0,00}", ts.TotalMilliseconds);
+                        ms.Text = String.Format("{0.0000}", ts.TotalMilliseconds);
                     }
                     //данные для выходного интерфейса.
                     countinerBox.Text = "" + obj.k_iner();//выводим кол-во итераций
@@ -121,14 +125,16 @@ namespace GoldenSearchMethod
                     x1uotFBox.Text = "" + obj.x1out();//выводим х1
                     fx1outBox.Text = "" + obj.fx1out();//Fx1
                     outTolBox.Text = "" + obj.absab().ToString("0e0");
+                    if (obj.k_iner() == k_max && obj.absab() > (decimal)tol) labelerr.Text = "Решение с данной точностью за K_Max \n не удалось найти.";
+                    
                     iterationButton.Enabled = true;
                 }
             }
             
-            catch (Exception ex)
-            {
-                MessageBox.Show("Не удалось распознать F. "+ex.Message); }
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Не удалось распознать F. "+ex.Message); }
+            //}
         private void str(string[] it)
         {
             throw new NotImplementedException();
@@ -150,7 +156,7 @@ namespace GoldenSearchMethod
            
             for (int i = 0; i < k; i++)//заполняю окно записями 
             {
-                frm2.richTextBox1.Text += it[i];
+               // frm2.richTextBox1.Text += it[i];
             }
             frm2.ShowDialog();//вызываю 
          
@@ -178,6 +184,7 @@ namespace GoldenSearchMethod
             progressBar1.Visible = false;
             iterationButton.Enabled = false;
             ms.Text = "";
+            labelerr.Text="";
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -202,6 +209,7 @@ namespace GoldenSearchMethod
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             if (progressBar1.Value < 100)
                 progressBar1.Increment(+20);  
             else
@@ -214,8 +222,7 @@ namespace GoldenSearchMethod
                     time = 0;
                     progressBar1.Value = 0;
                 }
-            }
-            
+            }     
         }
 
         private void countinerBox_TextChanged(object sender, EventArgs e)
