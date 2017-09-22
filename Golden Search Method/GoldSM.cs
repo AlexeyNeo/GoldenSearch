@@ -13,7 +13,7 @@ namespace GoldenSearchMethod
         decimal x1 = 0, x2 = 0;
         decimal fx1 = 0, fx2 = 0, abs = 0;
         int k;//текущая итерация
-      //  private System.Windows.Forms.TextBox textBox1;
+      
         string fxp;
         //public ExpressionParser parser = new ExpressionParser();
         public decimal Function(decimal x1)//функция 

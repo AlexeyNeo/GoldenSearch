@@ -293,6 +293,7 @@
             this.ms.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ms.Location = new System.Drawing.Point(67, 154);
             this.ms.Name = "ms";
+            this.ms.ReadOnly = true;
             this.ms.Size = new System.Drawing.Size(82, 25);
             this.ms.TabIndex = 14;
             // 

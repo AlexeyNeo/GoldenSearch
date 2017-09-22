@@ -8,7 +8,7 @@ namespace GoldenSearchMethod
  
     public partial class Main : Form
     {
-        Form newMDIChild = new GoldenSearchMethod.iteration();//дочернее окно
+        Form newMDIChild = new iteration();//дочернее окно
         public ExpressionParser parser = new ExpressionParser();
         public Main()
         {
@@ -79,8 +79,8 @@ namespace GoldenSearchMethod
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 labelerr.Text = "";
                 fx = comboBoxf.Text;
                 if (v() == 0)
@@ -131,10 +131,10 @@ namespace GoldenSearchMethod
                 }
             }
             
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Не удалось распознать F. "+ex.Message); }
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось распознать F. "+ex.Message); }
+            }
         private void str(string[] it)
         {
             throw new NotImplementedException();
@@ -154,11 +154,11 @@ namespace GoldenSearchMethod
         {
             iterationButton.Enabled = false;
            
-            for (int i = 0; i < k; i++)//заполняю окно записями 
-            {
-               // frm2.richTextBox1.Text += it[i];
-            }
-            frm2.ShowDialog();//вызываю 
+            //for (int i = 0; i < k; i++)//заполняю окно записями 
+            //{
+            //   // frm2.richTextBox1.Text += it[i];
+            //}
+            //frm2.ShowDialog();//вызываю 
          
         }
 
